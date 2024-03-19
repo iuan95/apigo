@@ -6,9 +6,11 @@ import (
 	"log"
 	"os"
 
+	"github.com/gofiber/fiber/v2"
 	"github.com/joho/godotenv"
 
 	"github.com/iuan95/apigo/db"
+	"github.com/iuan95/apigo/route"
 )
 
 func init(){
@@ -26,5 +28,7 @@ func main(){
 		os.Exit(1)
 	}
 	defer db.DB.Close()
-
+	app:= fiber.New()
+	route.InitRoute(app)
+	app.Listen(":3000")
 }
