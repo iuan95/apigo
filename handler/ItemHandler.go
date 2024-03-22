@@ -13,7 +13,7 @@ import (
 
 func GetItems(c *fiber.Ctx) error{
 	var items []model.Items
-	conn, err:=db.DB.Query(context.Background(), "SELECT * FROM items ORDER BY id")
+	conn, err:=db.DB.Query(context.Background(), "SELECT * FROM items ORDER BY id DESC")
 	if err != nil{
 		return c.Status(403).JSON(&fiber.Map{
 			"message": "error can not get items",
