@@ -30,5 +30,5 @@ func main(){
 	defer db.DB.Close()
 	app:= fiber.New()
 	route.InitRoute(app)
-	app.Listen(":3000")
+	app.Listen(":3001")
 }
